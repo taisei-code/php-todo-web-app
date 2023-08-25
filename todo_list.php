@@ -1,5 +1,16 @@
 <?php
 # TODO
+require_once("functions.php");
+
+# メッセージを取得
+$message = get_message();
+
+$lock_handle = lock_file(LOCK_SH);
+
+$todo_list = read_todo_list(false);
+
+unlock_file($lock_handle);
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
